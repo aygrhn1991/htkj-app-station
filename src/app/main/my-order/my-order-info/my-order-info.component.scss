@@ -1,0 +1,115 @@
+.myorderinfo-steps {
+    position: relative;
+    padding: 30px 0;
+    text-align: center;
+    background: #010B3E;
+    background-image: radial-gradient(#3D90C1, #010B3E, #000935);
+    background-repeat: no-repeat;
+    background-size: 70% 50%;
+    background-position: 50% 160%;
+}
+
+.myorderinfo-step-line {
+    position: absolute;
+    top: 22px;
+    left: 15%;
+    width: 70%;
+    z-index: 0;
+    border-bottom: 1px solid var(--root-border-color);
+}
+
+.myorderinfo-step-tip {
+    display: inline-block;
+    width: 30%;
+    color: var(--root-border-color);
+    font-size: 12px;
+    opacity: 0;
+}
+
+.myorderinfo-step-tip-select {
+    opacity: 1;
+}
+
+.myorderinfo-step {
+    position: relative;
+    display: inline-block;
+    width: 24%;
+}
+
+.myorderinfo-step-num {
+    display: inline-block;
+    border: 1px solid var(--root-border-color);
+    background: var(--root-background-color);
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+}
+
+.myorderinfo-step-num-select {
+    background: var(--root-border-color);
+}
+
+.myorderinfo-step-text {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--root-border-color);
+}
+
+.myorderinfo-title {
+    padding: 10px 20px;
+    color: orange;
+}
+
+.myorderinfo-content {
+    position: relative;
+    padding: 15px 20px;
+    line-height: 24px;
+    background: var(--root-component-background-color);
+    margin-bottom: 10px;
+}
+
+.myorderinfo-content-title {
+    margin-bottom: 8px;
+}
+
+.myorderinfo-content-indent {
+    text-indent: 1.5em;
+}
+
+.myorderinfo-content-indent>div>span {
+    float: right;
+}
+
+.myorderinfo-call {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 50px;
+    border: 1px solid var(--root-border-color);
+    color: var(--root-border-color);
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+.myorderinfo-call ion-icon {
+    position: relative;
+    top: 1px;
+    margin-right: 3px;
+}
+
+.myorderinfo-money {
+    text-align: right;
+    color: orange;
+    font-size: 18px;
+}
+
+.myorderinfo-evaluate {
+    text-align: center;
+    background: var(--root-border-color);
+    border-radius: 50px;
+    margin-top: 10px;
+    margin-left: 50%;
+    padding: 3px 0;
+    width: 50%;
+}

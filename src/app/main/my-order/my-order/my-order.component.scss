@@ -1,0 +1,72 @@
+.myorder-search {
+    padding: 10px;
+}
+
+.myorder-search-input {
+    padding: 3px;
+    width: 90%;
+    text-indent: 1em;
+    border: 1px solid var(--root-border-color);
+    border-radius: 5px;
+    background: var(--root-component-background-color);
+}
+
+.myorder-search-btn {
+    background: var(--root-border-color);
+    padding: 6px;
+    border-radius: 5px;
+    float: right;
+}
+
+.myorder-tabs {
+    text-align: center;
+    border-bottom: 1px solid var(--root-component-background-color);
+}
+
+.myorder-tab {
+    display: inline-block;
+    width: 24%;
+}
+
+.myorder-tab-select {
+    padding: 5px 0;
+    color: var(--root-border-color);
+    border-bottom: 2px solid var(--root-border-color);
+}
+
+.myorder-list {
+    padding: 10px;
+}
+
+.myorder-item {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid var(--root-border-color);
+    background: var(--root-component-background-color);
+}
+
+.myorder-title {
+    font-size: 12px;
+    padding: 5px 15px;
+    color: var(--root-border-color);
+    border-bottom: 1px solid var(--root-border-color);
+}
+
+.myorder-title span {
+    font-size: 12px;
+    color: orange;
+    float: right;
+}
+
+.myorder-content {
+    position: relative;
+    padding: 5px 15px;
+    line-height: 24px;
+}
+
+.myorder-money {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+    font-size: 18px;
+}

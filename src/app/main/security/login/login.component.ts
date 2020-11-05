@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
               this.vehService.getVeh().subscribe((data: Result) => {
                 if (data.successed) {
                   this.vehService.makeVeh(data.data);
-                  this.router.navigate(['/tabs/home/index']);
+                  this.router.navigate(['/tabs/my-order']);
                 } else {
                   this.toast.show(data.msg);
                 }

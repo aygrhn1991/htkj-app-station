@@ -1,3 +1,34 @@
-<p>
-  my-order works!
-</p>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>我的订单</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true">
+    <div class="myorder-search">
+        <input class="myorder-search-input" placeholder="搜索我的订单" />
+        <ion-icon class="myorder-search-btn" name="search-outline"></ion-icon>
+    </div>
+    <div class="myorder-tabs">
+        <div class="myorder-tab" [ngClass]="{'myorder-tab-select':tab==1}" (click)="tab=1">全部</div>
+        <div class="myorder-tab" [ngClass]="{'myorder-tab-select':tab==2}" (click)="tab=2">待付款</div>
+        <div class="myorder-tab" [ngClass]="{'myorder-tab-select':tab==3}" (click)="tab=3">待评价</div>
+        <div class="myorder-tab" [ngClass]="{'myorder-tab-select':tab==4}" (click)="tab=4">售后中</div>
+    </div>
+    <div class="myorder-list">
+        <div class="myorder-item" *ngFor="let data of list" routerLink="/tabs/my-order/my-order-info">
+            <div class="myorder-title">订单号：2020110500000{{data}}<span>已完成</span></div>
+            <div class="myorder-content">
+                <div>车辆品牌：吉利远景X3</div>
+                <div>车牌号码：黑A94S12</div>
+                <div>到店时间：2020-11-05 10:37:00</div>
+                <div>联系人：陈玉锋</div>
+                <div>联系电话：15645100192</div>
+                <div>维修项目：换雪地胎，洗车</div>
+                <div class="myorder-money">￥{{data+1}}00.<small>00</small></div>
+            </div>
+        </div>
+    </div>
+</ion-content>

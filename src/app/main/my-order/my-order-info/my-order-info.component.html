@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>订单详情</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true">
+    <div class="myorderinfo-steps">
+        <div class="myorderinfo-step-line">
+            <div class="myorderinfo-step-tip" [ngClass]="{'myorderinfo-step-tip-select':step==1}">待付款</div>
+            <div class="myorderinfo-step-tip" [ngClass]="{'myorderinfo-step-tip-select':step==2}">维修中</div>
+            <div class="myorderinfo-step-tip" [ngClass]="{'myorderinfo-step-tip-select':step==3}">待评价</div>
+        </div>
+        <div class="myorderinfo-step" (click)="step=1">
+            <div class="myorderinfo-step-num" [ngClass]="{'myorderinfo-step-num-select':step==1}">1</div>
+            <div class="myorderinfo-step-text">已下单</div>
+        </div>
+        <div class="myorderinfo-step" (click)="step=2">
+            <div class="myorderinfo-step-num" [ngClass]="{'myorderinfo-step-num-select':step==2}">2</div>
+            <div class="myorderinfo-step-text">已付款</div>
+        </div>
+        <div class="myorderinfo-step" (click)="step=3">
+            <div class="myorderinfo-step-num" [ngClass]="{'myorderinfo-step-num-select':step==3}">3</div>
+            <div class="myorderinfo-step-text">交易成功</div>
+        </div>
+        <div class="myorderinfo-step" (click)="step=4">
+            <div class="myorderinfo-step-num" [ngClass]="{'myorderinfo-step-num-select':step==4}">4</div>
+            <div class="myorderinfo-step-text">评价</div>
+        </div>
+    </div>
+    <div class="myorderinfo-title">维修完成</div>
+    <div class="myorderinfo-content">
+        <div>维修时长：3.5小时</div>
+        <div>维修项目：</div>
+        <div class="myorderinfo-content-indent">
+            <div>换雪地胎</div>
+            <div>洗车</div>
+        </div>
+        <div>购买配件：</div>
+        <div class="myorderinfo-content-indent">
+            <div>机油<span>￥250</span></div>
+            <div>火花塞<span>￥100</span></div>
+        </div>
+        <div>人工费：<span style="float:right;">￥150</span></div>
+        <div class="myorderinfo-money"><small>合计：</small>￥500.<small>00</small></div>
+    </div>
+    <div class="myorderinfo-content">
+        <a class="myorderinfo-call" href="tel:15645100192">
+            <ion-icon name="call"></ion-icon>联系车主
+        </a>
+        <div class="myorderinfo-content-title">车辆信息</div>
+        <div>车辆品牌：吉利远景X3</div>
+        <div>车牌号码：黑A94S12</div>
+        <div>到店时间：2020-11-05 10:37:00</div>
+        <div>联系人：陈玉锋</div>
+        <div>联系电话：15645100192</div>
+    </div>
+    <div class="myorderinfo-content">
+        <div class="myorderinfo-content-title">订单信息</div>
+        <div>订单号：20201101133700</div>
+        <div>下单时间：2020-11-05 13:37:00</div>
+        <div>付款时间：2020-11-05 13:37:00</div>
+        <div>售后开始时间：2020-11-05</div>
+        <div>售后结束时间：2020-12-05</div>
+        <div class="myorderinfo-evaluate">评价车主</div>
+    </div>
+</ion-content>
