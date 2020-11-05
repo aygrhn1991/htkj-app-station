@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ControlComponent } from './control/control.component';
+import { MyOrderComponent } from './my-order/my-order.component';
+import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
 import { BlankComponent } from 'src/app/modules/blank/blank.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'control' },
-  { path: 'control', component: BlankComponent, },
+  { path: '', redirectTo: 'my-order' },
+  { path: 'my-order', component: MyOrderComponent, },
 ];
 
 @NgModule({
   declarations: [
     BlankComponent,
-    ControlComponent,
+    MyOrderComponent
   ],
   imports: [
     IonicModule,
@@ -23,4 +23,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class ControlModule { }
+export class MyOrderModule { }

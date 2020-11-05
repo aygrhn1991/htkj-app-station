@@ -12,12 +12,11 @@ const routes: Routes = [
     path: 'tabs',
     component: TabsPage,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-      { path: 'home', loadChildren: () => import('../home/home.module').then(m => m.HomeModule), canActivate: [GuardService] },
-      { path: 'control', loadChildren: () => import('../control/control.module').then(m => m.ControlModule), canActivate: [GuardService] },
+      { path: '', redirectTo: 'my-order', pathMatch: 'full' },
+      { path: 'my-order', loadChildren: () => import('../my-order/my-order.module').then(m => m.MyOrderModule), canActivate: [GuardService] },
+      { path: 'intention-order', loadChildren: () => import('../intention-order/intention-order.module').then(m => m.IntentionOrderModule), canActivate: [GuardService] },
       { path: 'map', loadChildren: () => import('../map/map.module').then(m => m.MapModule), canActivate: [GuardService] },
       { path: 'user', loadChildren: () => import('../user/user.module').then(m => m.UserModule), canActivate: [GuardService] },
-      { path: 'list', loadChildren: () => import('../list/list.module').then(m => m.ListModule), canActivate: [GuardService] },
     ]
   },
 ];
