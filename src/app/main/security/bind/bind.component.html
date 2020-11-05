@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>车辆绑定</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true">
+    <ion-item-divider>
+        <ion-label>车辆绑定</ion-label>
+    </ion-item-divider>
+    <ion-item>
+        <ion-input [(ngModel)]="vin" placeholder="请输入要绑定的VIN"></ion-input>
+        <ion-button slot="end" (click)="bind()">
+            <ion-icon name="flash"></ion-icon>绑定
+        </ion-button>
+    </ion-item>
+    <ion-item-divider>
+        <ion-label>已绑定车辆</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let d of dataList">
+        <ion-label>
+            <ion-label>{{d.vno}}</ion-label>
+            <ion-label class="bind-subtitle">{{d.vin}}</ion-label>
+        </ion-label>
+        <ion-button slot="end" *ngIf="!d.select" (click)="changeBind(d)">
+            <ion-icon name="repeat"></ion-icon>切换
+        </ion-button>
+        <ion-button slot="end" *ngIf="d.select">
+            <ion-icon name="star"></ion-icon>当前
+        </ion-button>
+        <ion-button slot="end" (click)="unBind(d)">
+            <ion-icon name="flash-off"></ion-icon>解绑
+        </ion-button>
+    </ion-item>
+</ion-content>

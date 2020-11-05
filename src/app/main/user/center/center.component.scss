@@ -1,0 +1,30 @@
+.center-info {
+    position: relative;
+    text-align: center;
+    text-align: center;
+    padding: 20px 0;
+    background: #010B3E;
+    background-image: radial-gradient(#3D90C1, #010B3E, #010B3E);
+    background-repeat: no-repeat;
+    background-size: 70% 50%;
+    background-position: 50% 160%;
+}
+
+.center-info>img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+}
+
+.center-info-phone {
+    font-size: 12px;
+}
+
+ion-icon {
+    position: relative;
+    padding: 2px;
+    top: 4px;
+    margin-right: 10px;
+    border-radius: 100px;
+    background: var(--root-jb);
+}

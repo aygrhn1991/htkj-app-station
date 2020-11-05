@@ -1,0 +1,146 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+:root {
+    --root-border-color: #1566bb;
+    --root-background-color: #00032C;
+    --root-component-background-color: #031E47;
+    --root-jb: linear-gradient(to bottom, #00528F, #00052E);
+}
+
+* {
+    font-size: 14px;
+}
+
+*:focus {
+    outline: none;
+}
+
+input::-webkit-input-placeholder {
+    color: #ccc;
+}
+
+input::-moz-placeholder {
+    color: #ccc;
+}
+
+input:-moz-placeholder {
+    color: #ccc;
+}
+
+input:-ms-input-placeholder {
+    color: #ccc;
+}
+
+.ht-toast {
+    --color: #fff;
+    --background: rgba(0, 0, 0, 0.8);
+    --border-radius: 5px;
+    --max-width: 80%;
+    text-align: center;
+}
+
+ion-toolbar {
+    --color: #fff;
+    --background: #000;
+}
+
+ion-back-button {
+    --color: #fff;
+}
+
+ion-tab-bar {
+    --color: #fff;
+    --background: var(--root-background-color);
+    --border: 1px solid var(--root-border-color);
+}
+
+ion-tab-bar ion-label {
+    font-size: 12px;
+}
+
+ion-tab-bar ion-icon {
+    font-size: 20px;
+}
+
+ion-tab-button {
+    --color-selected: #40b8dd !important;
+}
+
+ion-content {
+    --color: #fff;
+    --background: var(--root-background-color);
+}
+
+ion-item-divider {
+    --color: #fff;
+    --background: transparent;
+    font-size: 12px;
+}
+
+ion-item {
+    --color: #fff;
+    --background: #031F47;
+    --highlight-color-focused: transparent;
+    --highlight-color-valid: transparent;
+    --highlight-color-invalid: transparent;
+}
+
+ion-input {
+    --color: #fff;
+    --background: #052B65 !important;
+    --padding-top: 3px !important;
+    --padding-bottom: 3px !important;
+    --placeholder-color: #ccc !important;
+    border: 1px solid var(--root-border-color);
+    border-radius: 5px;
+    text-indent: 1em;
+}
+
+ion-button {
+    --color: #fff;
+    --border-width: 1px;
+    --border-style: solid;
+    --border-color: var(--root-border-color);
+    --border-radius: 5px;
+    --background: var(--root-jb);
+}
+
+ion-segment {
+    --background: var(--root-component-background-color);
+}
+
+ion-segment-button {
+    --color: #fff;
+    --indicator-color: transparent;
+    --color-checked: #348CFF;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+}

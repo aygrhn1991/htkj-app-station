@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>个人中心</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true">
+    <div class="center-info">
+        <img src="../../../../assets/img/head.jpg">
+        <div class="center-info-name">{{user.name}}</div>
+        <div class="center-info-phone">{{user.phone}}</div>
+    </div>
+    <ion-item-divider>
+        <ion-label>基础管理</ion-label>
+    </ion-item-divider>
+    <ion-item detail routerLink="/security/bind/1">
+        <ion-label>
+            <ion-icon name="flash"></ion-icon>车辆绑定
+        </ion-label>
+    </ion-item>
+    <ion-item detail routerLink="/tabs/user/setting">
+        <ion-label>
+            <ion-icon name="settings"></ion-icon>应用设置
+        </ion-label>
+    </ion-item>
+    <ion-item-divider>
+        <ion-label>消息日志</ion-label>
+    </ion-item-divider>
+    <ion-item detail routerLink="/tabs/user/message">
+        <ion-label>
+            <ion-icon name="chatbubble-ellipses"></ion-icon>消息
+        </ion-label>
+        <ion-badge color="danger">0</ion-badge>
+    </ion-item>
+    <ion-item detail routerLink="/tabs/user/dtu-update-log">
+        <ion-label>
+            <ion-icon name="cloud-upload"></ion-icon>终端升级日志
+        </ion-label>
+    </ion-item>
+    <ion-item-divider>
+        <ion-label>系统安全</ion-label>
+    </ion-item-divider>
+    <ion-item detail routerLink="/tabs/user/info">
+        <ion-label>
+            <ion-icon name="person"></ion-icon>用户信息维护
+        </ion-label>
+    </ion-item>
+    <ion-item detail routerLink="/tabs/user/security">
+        <ion-label>
+            <ion-icon name="shield-checkmark"></ion-icon>账号安全
+        </ion-label>
+    </ion-item>
+    <ion-item detail routerLink="/tabs/user/update-log">
+        <ion-label>
+            <ion-icon name="cloud-download"></ion-icon>更新日志
+        </ion-label>
+    </ion-item>
+    <ion-item detail (click)="checkUpdate()">
+        <ion-label>
+            <ion-icon name="push"></ion-icon>检查更新
+        </ion-label>
+    </ion-item>
+    <ion-item detail (click)="logout()">
+        <ion-label>
+            <ion-icon name="power" style="background:#eb445a;"></ion-icon>注销登录
+        </ion-label>
+    </ion-item>
+</ion-content>
