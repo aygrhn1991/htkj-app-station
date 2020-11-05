@@ -1,0 +1,91 @@
+.intentionorder-search {
+    padding: 10px;
+}
+
+.intentionorder-search-input {
+    padding: 3px;
+    width: 90%;
+    text-indent: 1em;
+    border: 1px solid var(--root-border-color);
+    border-radius: 5px;
+    background: var(--root-component-background-color);
+}
+
+.intentionorder-search-btn {
+    background: var(--root-border-color);
+    padding: 6px;
+    border-radius: 5px;
+    float: right;
+}
+
+.intentionorder-tabs {
+    text-align: center;
+    border-bottom: 1px solid var(--root-component-background-color);
+}
+
+.intentionorder-tab {
+    display: inline-block;
+    width: 31%;
+}
+
+.intentionorder-tab-select {
+    padding: 5px 0;
+    color: var(--root-border-color);
+    border-bottom: 2px solid var(--root-border-color);
+}
+
+.intentionorder-list {
+    padding: 10px;
+}
+
+.intentionorder-item {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid var(--root-border-color);
+    background: var(--root-component-background-color);
+}
+
+.intentionorder-title {
+    font-size: 12px;
+    padding: 5px 15px;
+    color: var(--root-border-color);
+    border-bottom: 1px solid var(--root-border-color);
+}
+
+.intentionorder-title span {
+    font-size: 12px;
+    color: orange;
+    float: right;
+}
+
+.intentionorder-content {
+    position: relative;
+    padding: 5px 15px;
+    line-height: 24px;
+}
+
+.intentionorder-call {
+    float: left;
+    width: 40%;
+    border-radius: 50px;
+    border: 1px solid var(--root-border-color);
+    color: var(--root-border-color);
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 5px 0 5px 5%;
+    text-align: center;
+}
+
+.intentionorder-call ion-icon {
+    position: relative;
+    top: 1px;
+    margin-right: 3px;
+}
+
+.intentionorder-quote {
+    text-align: center;
+    background: var(--root-border-color);
+    border: 1px solid var(--root-border-color);
+    border-radius: 50px;
+    margin: 5px 5% 5px 55%;
+}

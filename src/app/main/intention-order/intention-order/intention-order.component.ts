@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntentionOrderComponent implements OnInit {
 
+  tab: number = 1;
+  list: Array<any> = [];
+
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    for (let i = 0; i < 10; i++) {
+      this.list.push(i);
+    }
+  }
 
 }

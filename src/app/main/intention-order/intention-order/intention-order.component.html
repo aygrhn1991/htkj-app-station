@@ -1,3 +1,35 @@
-<p>
-  intention-order works!
-</p>
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>意向订单</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content fullscreen="true">
+    <div class="intentionorder-search">
+        <input class="intentionorder-search-input" placeholder="搜索我的订单" />
+        <ion-icon class="intentionorder-search-btn" name="search-outline"></ion-icon>
+    </div>
+    <div class="intentionorder-tabs">
+        <div class="intentionorder-tab" [ngClass]="{'intentionorder-tab-select':tab==1}" (click)="tab=1">全部(29)</div>
+        <div class="intentionorder-tab" [ngClass]="{'intentionorder-tab-select':tab==2}" (click)="tab=2">已报价(16)</div>
+        <div class="intentionorder-tab" [ngClass]="{'intentionorder-tab-select':tab==3}" (click)="tab=3">未报价(13)</div>
+    </div>
+    <div class="intentionorder-list">
+        <div class="intentionorder-item" *ngFor="let data of list">
+            <div class="intentionorder-title">订单号：2020110500000{{data}}<span>报价：￥300.00</span></div>
+            <div class="intentionorder-content">
+                <div>车辆品牌：吉利远景X3</div>
+                <div>车牌号码：黑A94S12</div>
+                <div>联系人：陈玉锋</div>
+                <div>联系电话：15645100192</div>
+                <div>维修项目：换雪地胎，洗车</div>
+                <a class="intentionorder-call" href="tel:15645100192">
+                    <ion-icon name="call"></ion-icon>拨打电话
+                </a>
+                <div class="intentionorder-quote" routerLink="/tabs/intention-order/intention-order-info">￥去报价</div>
+            </div>
+        </div>
+    </div>
+</ion-content>
