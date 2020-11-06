@@ -33,32 +33,32 @@ export class MapComponent implements OnInit {
     this.goBack();
   }
   goBack() {
-    let geolocation = new BMap.Geolocation();
-    geolocation.getCurrentPosition((r) => {
-      let point = r.point;
-      let marker = new BMap.Marker(point);
-      this.map.addOverlay(marker);
-      this.map.centerAndZoom(point, 15);
-    }, { enableHighAccuracy: true })
+    // let geolocation = new BMap.Geolocation();
+    // geolocation.getCurrentPosition((r) => {
+    //   let point = r.point;
+    //   let marker = new BMap.Marker(point);
+    //   this.map.addOverlay(marker);
+    //   this.map.centerAndZoom(point, 15);
+    // }, { enableHighAccuracy: true })
 
-    // this.geolocation.getCurrentPosition().then((resp) => {
-    //   let lng = resp.coords.longitude;
-    //   let lat = resp.coords.latitude;
-    //   let oldPoint = new BMap.Point(lng, lat);
-    //   let oldPointArray = [];
-    //   oldPointArray.push(oldPoint);
-    //   let convertor = new BMap.Convertor();
-    //   convertor.translate(oldPointArray, 1, 5, (data) => {
-    //     if (data.status === 0) {
-    //       let newPoint = data.points[0];
-    //       let marker = new BMap.Marker(newPoint);
-    //       this.map.addOverlay(marker);
-    //       this.map.centerAndZoom(newPoint, 15);
-    //     }
-    //   })
-    // }).catch((error) => {
-    //   this.toast.show('地图处理异常，请重新进入应用');
-    // });
+    this.geolocation.getCurrentPosition().then((resp) => {
+      let lng = resp.coords.longitude;
+      let lat = resp.coords.latitude;
+      let oldPoint = new BMap.Point(lng, lat);
+      let oldPointArray = [];
+      oldPointArray.push(oldPoint);
+      let convertor = new BMap.Convertor();
+      convertor.translate(oldPointArray, 1, 5, (data) => {
+        if (data.status === 0) {
+          let newPoint = data.points[0];
+          let marker = new BMap.Marker(newPoint);
+          this.map.addOverlay(marker);
+          this.map.centerAndZoom(newPoint, 15);
+        }
+      })
+    }).catch((error) => {
+      this.toast.show('地图处理异常，请重新进入应用');
+    });
   }
   big() {
     this.map.zoomIn();
