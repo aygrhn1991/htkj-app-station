@@ -19,15 +19,15 @@
     </div>
     <div class="myorder-list">
         <div class="myorder-item" *ngFor="let data of list" routerLink="/tabs/my-order/my-order-info">
-            <div class="myorder-title">订单号：2020110500000{{data}}<span>已完成</span></div>
+            <div class="myorder-title">订单号：{{data.order}}<span>{{data.state}}</span></div>
             <div class="myorder-content">
-                <div>车辆品牌：吉利远景X3</div>
-                <div>车牌号码：黑A94S12</div>
-                <div>到店时间：2020-11-05 10:37:00</div>
-                <div>联系人：陈玉锋</div>
-                <div>联系电话：15645100192</div>
-                <div>维修项目：换雪地胎，洗车</div>
-                <div class="myorder-money">￥{{data+1}}00.<small>00</small></div>
+                <div>车辆品牌：{{data.vm}}</div>
+                <div>车牌号码：{{data.vno}}</div>
+                <div>到店时间：{{data.time}}</div>
+                <div>联系人：{{data.user}}</div>
+                <div>联系电话：{{data.phone}}</div>
+                <div>维修项目：{{data.item}}</div>
+                <div class="myorder-money">￥{{data.money}}.<small>00</small></div>
             </div>
         </div>
     </div>

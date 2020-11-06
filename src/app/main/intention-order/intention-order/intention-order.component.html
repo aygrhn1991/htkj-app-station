@@ -18,13 +18,13 @@
     </div>
     <div class="intentionorder-list">
         <div class="intentionorder-item" *ngFor="let data of list">
-            <div class="intentionorder-title">订单号：2020110500000{{data}}<span>报价：￥300.00</span></div>
+            <div class="intentionorder-title">订单号：{{data.order}}<span>报价：￥{{data.money}}.00</span></div>
             <div class="intentionorder-content">
-                <div>车辆品牌：吉利远景X3</div>
-                <div>车牌号码：黑A94S12</div>
-                <div>联系人：陈玉锋</div>
-                <div>联系电话：15645100192</div>
-                <div>维修项目：换雪地胎，洗车</div>
+                <div>车辆品牌：{{data.vm}}</div>
+                <div>车牌号码：{{data.vno}}</div>
+                <div>联系人：{{data.user}}</div>
+                <div>联系电话：{{data.phone}}</div>
+                <div>维修项目：{{data.item}}</div>
                 <a class="intentionorder-call" href="tel:15645100192">
                     <ion-icon name="call"></ion-icon>拨打电话
                 </a>
