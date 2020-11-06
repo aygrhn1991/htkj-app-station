@@ -4,27 +4,12 @@
     font-size: 12px;
 }
 
-.intentionorderinfo-content {
-    position: relative;
-    padding: 15px 20px;
-    line-height: 24px;
-    background: var(--root-component-background-color);
-    margin-bottom: 10px;
-}
-
-.intentionorderinfo-parts {
+.intentionorderinfo-parts-btn {
     position: absolute;
     top: 12px;
     right: 20px;
-    background: var(--root-border-color);
-    border-radius: 50px;
-    padding: 0 6px;
-}
-
-.intentionorderinfo-parts ion-icon {
-    position: relative;
-    top: 2px;
-    margin-right: 3px;
+    line-height: initial;
+    padding: 3px 6px;
 }
 
 .intentionorderinfo-content-title {
@@ -40,30 +25,8 @@
 }
 
 .intentionorderinfo-content-input {
-    background: var(--root-component-background-color);
-    border: 1px solid var(--root-border-color);
     width: 60px;
-    height: 24px;
-    border-radius: 5px;
     text-align: right;
-    padding: 0 5px;
-}
-
-.intentionorderinfo-call {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    border-radius: 50px;
-    border: 1px solid var(--root-border-color);
-    color: var(--root-border-color);
-    text-decoration: none;
-    padding: 0 10px;
-}
-
-.intentionorderinfo-call ion-icon {
-    position: relative;
-    top: 1px;
-    margin-right: 3px;
 }
 
 .intentionorderinfo-money {
@@ -73,19 +36,33 @@
     margin-top: 10px;
 }
 
-.intentionorderinfo-evaluate {
-    text-align: center;
-    background: var(--root-border-color);
-    border-radius: 50px;
-    margin-top: 10px;
-    margin-left: 50%;
-    padding: 3px 0;
-    width: 50%;
-}
-
 ion-toggle {
     height: 20px;
     position: relative;
     top: 5px;
-    margin-right: 10px;
+    margin-right: 5px;
+    padding: 0;
+}
+
+.intentionorderinfo-queue-input {
+    background: var(--root-component-background-color);
+    border: 1px solid var(--root-border-color);
+    width: 40px;
+    height: 24px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.intentionorderinfo-footer {
+    position: fixed;
+    bottom: 0;
+    padding: 10px 15px;
+    width: 100%;
+    background: var(--root-component-background-color);
+    border-top: 1px solid var(--root-border-color);
+}
+
+.intentionorderinfo-save-btn {
+    margin-left: 60%;
 }

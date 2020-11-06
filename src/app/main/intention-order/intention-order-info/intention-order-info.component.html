@@ -8,8 +8,8 @@
 </ion-header>
 <ion-content fullscreen="true">
     <div class="intentionorderinfo-title">订单号：20201101133700</div>
-    <div class="intentionorderinfo-content">
-        <div class="intentionorderinfo-parts">
+    <div class="content1">
+        <div class="btn1 intentionorderinfo-parts-btn" routerLink="/tabs/intention-order/intention-order-parts">
             <ion-icon name="add"></ion-icon>去选配件
         </div>
         <div>维修配件清单：</div>
@@ -19,24 +19,22 @@
             <div>火花塞<span>￥100</span></div>
         </div>
         <div>人工费：
-            <span style="float:right;">￥<input type="text" value="150" class="intentionorderinfo-content-input"></span>
+            <span style="float:right;">￥<input type="tel" value="150" class="input1 intentionorderinfo-content-input"></span>
         </div>
         <div class="intentionorderinfo-money"><small>合计：</small>￥550.<small>00</small></div>
     </div>
-    <div class="intentionorderinfo-content">
+    <div class="content1">
         <div>维修项目：</div>
         <div class="intentionorderinfo-content-indent">
             <div>换雪地胎</div>
             <div>洗车</div>
         </div>
         <div>是否需要排队：
-            <ion-toggle></ion-toggle><span>是</span>
+            <ion-toggle [(ngModel)]="queue"></ion-toggle>{{queue?'是，':'否'}}
+            <span *ngIf="queue">前面还有<input type="tel" class="input1 intentionorderinfo-queue-input" value="3">人</span>
         </div>
     </div>
-    <div class="intentionorderinfo-content">
-        <a class="intentionorderinfo-call" href="tel:15645100192">
-            <ion-icon name="call"></ion-icon>联系车主
-        </a>
+    <div class="content1" style="margin-bottom:60px;">
         <div class="intentionorderinfo-content-title">车辆信息</div>
         <div>车辆品牌：吉利远景X3</div>
         <div>车牌号码：黑A94S12</div>
@@ -44,18 +42,7 @@
         <div>联系人：陈玉锋</div>
         <div>联系电话：15645100192</div>
     </div>
-    <div class="intentionorderinfo-content">
-        <div>维修项目：</div>
-        <div class="intentionorderinfo-content-indent">
-            <div>换雪地胎</div>
-            <div>洗车</div>
-        </div>
-        <div class="intentionorderinfo-content-title">订单信息</div>
-        <div>订单号：20201101133700</div>
-        <div>下单时间：2020-11-05 13:37:00</div>
-        <div>付款时间：2020-11-05 13:37:00</div>
-        <div>售后开始时间：2020-11-05</div>
-        <div>售后结束时间：2020-12-05</div>
-        <div class="intentionorderinfo-evaluate">评价车主</div>
+    <div class="intentionorderinfo-footer">
+        <div class="btn1 intentionorderinfo-save-btn">确认报价</div>
     </div>
 </ion-content>

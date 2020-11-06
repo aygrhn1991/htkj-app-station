@@ -1,0 +1,45 @@
+.intentionorderparts-title {
+    padding: 10px 20px;
+    color: var(--root-border-color);
+    font-size: 12px;
+}
+
+.intentionorderparts-parts {
+    text-align: center;
+}
+
+.intentionorderparts-parts ion-icon {
+    font-size: 30px;
+    background: #154183;
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.intentionorderparts-parts-select ion-icon {
+    background: #3388FF;
+}
+
+.intentionorderparts-parts-name {
+    font-size: 12px;
+    line-height: initial;
+}
+
+.intentionorderparts-footer {
+    position: fixed;
+    bottom: 0;
+    padding: 10px 15px;
+    width: 100%;
+    background: var(--root-component-background-color);
+    border-top: 1px solid var(--root-border-color);
+}
+
+.intentionorderparts-money {
+    float: left;
+    font-size: 18px;
+    color: orange;
+    margin-top: 5px;
+}
+
+.intentionorderparts-save-btn {
+    margin-left: 60%;
+}

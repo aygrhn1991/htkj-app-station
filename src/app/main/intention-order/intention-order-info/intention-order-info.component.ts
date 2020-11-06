@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntentionOrderInfoComponent implements OnInit {
 
+  queue: boolean = true;
+  
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }
