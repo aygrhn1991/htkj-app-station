@@ -4,6 +4,7 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ToastService } from 'src/app/services/toast.service';
 import { UtilService } from 'src/app/services/util.service';
 declare var BMap: any;
+declare var BMapGL: any;
 
 @Component({
   selector: 'app-map',
@@ -25,34 +26,32 @@ export class MapComponent implements OnInit {
   ngOnInit() { }
 
   ngAfterViewInit(): void {
-    this.map = new BMap.Map(this.mapContainer.nativeElement);
+    this.map = new BMapGL.Map(this.mapContainer.nativeElement);
+    this.map.enableScrollWheelZoom(true);
     this.map.addEventListener('tilesloaded', () => {
       let centerPoint = this.map.getCenter();
-      this.getData(centerPoint.lng, centerPoint.lat);
+      let zoom = this.map.getZoom();
+      this.getData(centerPoint.lng, centerPoint.lat, zoom);
     });
     this.goBack();
   }
   goBack() {
-    // let geolocation = new BMap.Geolocation();
+    // let geolocation = new BMapGL.Geolocation();
     // geolocation.getCurrentPosition((r) => {
     //   let point = r.point;
-    //   let marker = new BMap.Marker(point);
-    //   this.map.addOverlay(marker);
     //   this.map.centerAndZoom(point, 15);
     // }, { enableHighAccuracy: true })
 
     this.geolocation.getCurrentPosition().then((resp) => {
       let lng = resp.coords.longitude;
       let lat = resp.coords.latitude;
-      let oldPoint = new BMap.Point(lng, lat);
+      let oldPoint = new BMapGL.Point(lng, lat);
       let oldPointArray = [];
       oldPointArray.push(oldPoint);
       let convertor = new BMap.Convertor();
       convertor.translate(oldPointArray, 1, 5, (data) => {
         if (data.status === 0) {
           let newPoint = data.points[0];
-          let marker = new BMap.Marker(newPoint);
-          this.map.addOverlay(marker);
           this.map.centerAndZoom(newPoint, 15);
         }
       })
@@ -66,13 +65,13 @@ export class MapComponent implements OnInit {
   small() {
     this.map.zoomOut();
   }
-  getData(lng: number, lat: number) {
+  getData(lng: number, lat: number, zoom: number) {
     this.http.post(`/mysql/common/query`, {
       db: 'iov',
-      proc: 'bss_xp_findvehs',
+      proc: 'bss_xp_findvehs_xzqh',
       inPlat: false,
       inOem: false,
-      param: [lng, lat]
+      param: [140105, 4]
     }).subscribe((data: any) => {
       data.data.forEach(x => {
         let itemNum = this.util.getIntRandom(1, 5);
@@ -85,14 +84,39 @@ export class MapComponent implements OnInit {
       this.dataList = data.data;
       this.dataTotal = data.data.length;
       this.dataList.forEach(x => {
-        this.drawVeh(x.c_lng, x.c_lat);
+        if (zoom >= 11) {
+          this.drawVeh1(x.c_lng, x.c_lat);
+        } else if (zoom < 11 && zoom > 7) {
+          this.drawVeh3(x.c_lng, x.c_lat, x.cn);
+        } else {
+          this.drawVeh3(x.c_lng, x.c_lat, x.cn);
+        }
       });
     });
   }
-  drawVeh(lng: number, lat: number) {
-    let point = new BMap.Point(lng, lat);
-    let marker = new BMap.Marker(point);
+  drawVeh1(lng: number, lat: number) {
+    let point = new BMapGL.Point(lng, lat);
+    let marker = new BMapGL.Marker(point);
     this.map.addOverlay(marker);
+  }
+  drawVeh2() {
+
+  }
+  drawVeh3(lng: number, lat: number, count: number) {
+    let opts = {
+      position: new BMapGL.Point(lng, lat),
+      offset: new BMapGL.Size(0, 0)
+    };
+    let label = new BMapGL.Label(count, opts);
+    label.setStyle({
+      color: '#fff',
+      borderRadius: '5px',
+      borderColor: '#f00',
+      backgroundColor: '#f00',
+      padding: '2px',
+      fontSize: '12px'
+    });
+    this.map.addOverlay(label);
   }
 
 
