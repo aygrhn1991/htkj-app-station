@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Result } from 'src/app/models/result.model';
 import { ToastService } from 'src/app/services/toast.service';
 import { UtilService } from 'src/app/services/util.service';
 declare var BMap: any;
@@ -27,12 +28,8 @@ export class MapComponent implements OnInit {
 
   ngAfterViewInit(): void {
     this.map = new BMapGL.Map(this.mapContainer.nativeElement);
-    this.map.enableScrollWheelZoom(true);
-    this.map.addEventListener('tilesloaded', () => {
-      let centerPoint = this.map.getCenter();
-      let zoom = this.map.getZoom();
-      this.getData(centerPoint.lng, centerPoint.lat, zoom);
-    });
+    this.map.enableScrollWheelZoom(false);
+    this.map.addEventListener('tilesloaded', () => { this.getData(); });
     this.goBack();
   }
   goBack() {
@@ -61,48 +58,66 @@ export class MapComponent implements OnInit {
   }
   big() {
     this.map.zoomIn();
+    this.getData();
   }
   small() {
     this.map.zoomOut();
+    this.getData();
   }
-  getData(lng: number, lat: number, zoom: number) {
-    this.http.post(`/mysql/common/query`, {
-      db: 'iov',
-      proc: 'bss_xp_findvehs_xzqh',
-      inPlat: false,
-      inOem: false,
-      param: [140105, 4]
-    }).subscribe((data: any) => {
-      data.data.forEach(x => {
-        let itemNum = this.util.getIntRandom(1, 5);
-        x.item = itemNum == 1 ? '胎压异常' : itemNum == 2 ? '转向助力异常' : itemNum == 3 ? '大灯故障' : itemNum == 4 ? '发动机异响' : '补胎';
-        x.score = this.util.getIntRandom(35, 50) / 10;
-        x.mile = this.util.getIntRandom(0, 50) / 10;
-        x.img = this.util.getIntRandom(1, 10);
-      });
-      this.map.clearOverlays();
-      this.dataList = data.data;
-      this.dataTotal = data.data.length;
-      this.dataList.forEach(x => {
-        if (zoom >= 11) {
-          this.drawVeh1(x.c_lng, x.c_lat);
-        } else if (zoom < 11 && zoom > 7) {
-          this.drawVeh3(x.c_lng, x.c_lat, x.cn);
-        } else {
-          this.drawVeh3(x.c_lng, x.c_lat, x.cn);
+
+  getData() {
+    console.log('执行获取数据方法');
+    let centerPoint = this.map.getCenter();
+    let zoom = this.map.getZoom();
+    let lng = centerPoint.lng;
+    let lat = centerPoint.lat;
+    this.http.post(`/gis/toXzqhXY`, { x: lng, y: lat }).subscribe((data: Result) => {
+      console.log('缩放级别', zoom);
+      console.log('行政区划', data);
+      this.http.post(`/mysql/common/query`, {
+        db: 'iov',
+        proc: 'bss_xp_findvehs_xzqh',
+        inPlat: false,
+        inOem: false,
+        param: [data.data, (zoom >= 10) ? 1 : (zoom < 10 && zoom > 6) ? 2 : 3]
+      }).subscribe((data: any) => {
+        console.log('返回数据', data);
+        data.data.forEach(x => {
+          let itemNum = this.util.getIntRandom(1, 5);
+          x.item = itemNum == 1 ? '胎压异常' : itemNum == 2 ? '转向助力异常' : itemNum == 3 ? '大灯故障' : itemNum == 4 ? '发动机异响' : '补胎';
+          x.score = this.util.getIntRandom(35, 50) / 10;
+          x.mile = this.util.getIntRandom(0, 50) / 10;
+          x.img = this.util.getIntRandom(1, 10);
+        });
+        this.map.clearOverlays();
+        this.dataList = data.data;
+        this.dataTotal = data.data.length;
+        if(this.dataList.length>100){
+          this.dataList=this.dataList.slice(0,100);
         }
+        this.dataList.forEach(x => {
+          if (zoom >= 10) {
+            this.drawVeh1(x.c_lng, x.c_lat);
+          } else if (zoom < 10 && zoom > 6) {
+            this.drawVeh2(x.c_lng, x.c_lat, x.cn);
+          } else {
+            this.drawVeh2(x.c_lng, x.c_lat, x.cn);
+          }
+        });
       });
     });
+
+
+
+
+
   }
   drawVeh1(lng: number, lat: number) {
     let point = new BMapGL.Point(lng, lat);
     let marker = new BMapGL.Marker(point);
     this.map.addOverlay(marker);
   }
-  drawVeh2() {
-
-  }
-  drawVeh3(lng: number, lat: number, count: number) {
+  drawVeh2(lng: number, lat: number, count: number) {
     let opts = {
       position: new BMapGL.Point(lng, lat),
       offset: new BMapGL.Size(0, 0)
